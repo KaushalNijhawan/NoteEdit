@@ -1,0 +1,26 @@
+<div>
+    <div class="modal" tabindex="-1" role="dialog" >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">{{popupText}}</h5>
+              </div>
+            <div class="modal-body">
+              <p>
+                <input type="text" required [(ngModel)]="changedURL" style="width:'80%'; height:'35px'" *ngIf="!passwordSet">
+                <input type="password" required [(ngModel)]="passwordNote" style="width:'80%'; height:'35px'" *ngIf="passwordSet">
+              </p>
+
+            </div>
+            
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" (click) = "closePopup()" *ngIf="!passwordButton">Save changes</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" (click) = "crossButton()" *ngIf="!passwordButton">Close</button>           
+              <button type="button" class="btn btn-primary" *ngIf="passwordButton" (click) = "removePassword()">Remove</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" *ngIf="passwordButton" (click)="logoutNoteEdit()">Logout</button>
+              <button type="button" class='btn btn-secondary' data-dismiss="modal" *ngIf="passwordButton" (click) ="crossButton()"><i class="fa fa-times"></i></button>
+            </div>
+            </div>
+        </div>
+      </div>
+</div>

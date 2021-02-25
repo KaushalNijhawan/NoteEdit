@@ -1,0 +1,45 @@
+<!-- <div  else voicesection;">
+    <button type="button" >Record</button>
+  </div>
+  <ng-template #voicesection>
+    <ng-container *ngIf="!voiceActiveSectionError; else failure">
+      <ng-container *ngIf="voiceText; else start">
+          <span>{{voiceText}}</span>
+      </ng-container>
+      <ng-template #start>
+        <ng-container
+          *ngIf="voiceActiveSectionListening; else beginning">
+          <span>Listening...</span>
+        </ng-container>
+        <ng-template #beginning>
+          <span>Start talking...</span>
+        </ng-template>
+      </ng-template>
+    </ng-container>
+    <ng-template #failure>
+      <span>Didn't catch that</span>
+    </ng-template>
+    <div>
+      <button >Close</button>
+      <button (click)="startVoiceRecognition()">Restart</button>
+    </div>
+  </ng-template> -->
+
+  <div class="p-3 mb-2 bg-light" style="height:'100%'">
+    <div class="d-flex justify-content-center" style="margin-top:40px">
+      <span><i class="fa fa-microphone fa-4x"></i></span>
+      <p style="margin-left:'30px';font-size:40px;margin-top: 20px;">Speech To Text</p>
+    </div>
+    
+    <div style="margin-top:'50px';" class="d-flex justify-content-center">
+        <span style="cursor: pointer;" *ngIf="voiceActiveSectionDisabled;" (click)="startVoiceRecognition()" matTooltip="Tap To Speak"><i class="fa fa-play fa-4x"></i></span>
+        <span style="margin-left: 50px;cursor: pointer;" *ngIf="!voiceActiveSectionDisabled;"  matTooltip="Tap To Stop" (click)="closeVoiceRecognition()"><i class="fa fa-stop-circle fa-4x"></i></span>
+    </div>
+    <div class="d-flex justify-content-center" style="margin-top: 50px;height:'50%'">
+      <textarea style="width:'60%';height:100%';margin-top: 40px;" [(ngModel)]="voiceText" style="font-size: 30px;padding: 20px 5px;" cols="60" rows="60" (blur) = "saveTheNote()"></textarea>
+    </div>
+    <div class="d-flex justify-content-center" style="margin-top:28px;cursor: pointer;">
+        <span><i class="fa fa-chevron-left fa-3x"></i></span>
+        <p style="font-size: 25px;margin-left: 9px;margin-top: 8px;" (click) = "GoToHomePage()">Back To NoteEdit</p>
+    </div>
+  </div>

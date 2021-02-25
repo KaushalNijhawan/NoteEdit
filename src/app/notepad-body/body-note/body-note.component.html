@@ -1,0 +1,13 @@
+<div style="height:100%">
+    <div class="form-floating" style="height:1000px">
+        <textarea class="form-control"  id="floatingTextarea2" style="height:'80%'" [(ngModel)] ="wordsString" (ngModelChange)="calculateWordsAndChars()"></textarea>
+    </div>
+    <div class="row" style="margin-top: -180px;">
+        <div class="col-8">
+        <p> Words : {{wordCount}}</p>
+    </div>
+    <div class="col-4">
+        <p> Chars : {{charsCount}}</p>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="container"  class="p-3 mb-2 bg-light text-dark" style="height:'100%'">
+    <div class="row">
+        <i class="fa fa-lock fa-5x" style="margin-left:'43rem';margin-top: '80px';"></i>
+    </div>
+    <div class="row" style="align-items: center; margin-top: 30px;" class="d-flex justify-content-center">
+        <input type="password" placeholder="Password" required style="width:'20%'; height:'50px'" [(ngModel)]="passwordNote">
+    </div>
+    <div class="d-flex justify-content-center" style="margin-top:'30px'">
+        <button class="btn btn-dark" (click)="validatePassword()" [disabled]="passwordNote.length < 3">Login</button>
+    </div>
+    <div class="d-flex justify-content-center"  style="margin-top: 20px; " *ngIf="errorMessage != ''">
+        <p style="color:'red';font-weight: 200;"><b>{{errorMessage}}</b></p>
+    </div>
+    <div class="d-flex justify-content-center" style="margin-top:'70px'">
+        <div class="row" (click) = "reachedDown()" style="cursor:pointer">
+            <div class="col-1">
+                <i class="fa fa-chevron-left fa-2x"></i>
+            </div>
+            <div class="col-10" style="margin-right: 16px;">
+                <p style="margin-left: 10px;">Go Back To Notepad</p>
+            </div>
+            
+    </div>
+    </div>
+    
+</div>

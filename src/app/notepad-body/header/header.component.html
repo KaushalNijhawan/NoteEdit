@@ -1,0 +1,27 @@
+<div>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            NoteEdit
+          </a>
+          <div class="d-flex justify-content-end">
+          <span (click)="generateRandomString()" style="cursor:pointer" matTooltip="Add New Note"><i class="fa fa-plus fa-2x"></i></span>
+          <span (click) ="toggleLockPopup()" style="cursor:pointer; margin-left: 30px;" matTooltip="Add Password"><i class="fa fa-lock fa-2x"></i></span>
+          <span (click)="toggleURLPopup()" style="cursor:pointer ;margin-left: 30px;" matTooltip="Edit Note URL"><i class="fa fa-edit fa-2x"></i></span>
+          <span (click)="GoToSpeechToText()" style="cursor:pointer;margin-left: 30px;" matTooltip="Voice to Text"><i class="fa fa-microphone fa-2x"></i></span>
+          <span (click) = "GoToUploadComp()" style="cursor:pointer;margin-left: 30px;" matTooltip="Upload File"><i class="fa fa-upload fa-2x"></i></span>
+        </div>
+          <div *ngIf="popup">
+            <div *ngIf ="!isLoggedInPopup">
+              <app-popup (updatepopup)="getpopup()"
+           [popupType] = "popupType"></app-popup>
+            </div>
+          <div *ngIf ="isLoggedInPopup">
+            <app-logged-in-popup></app-logged-in-popup>
+          </div>
+           
+        </div>
+        </div>
+      </nav>
+      <app-body-note (sendLoggedIn)="getLoggedInStatus($event)"></app-body-note>
+</div>
